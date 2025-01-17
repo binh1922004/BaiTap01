@@ -73,4 +73,24 @@
         android:layout_height="wrap_content"
         android:text="Chẳn lẻ" />
 
+    <EditText
+        android:id="@+id/edtString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nhập vào chuỗi"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnReverse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đảo ngược chuỗi" />
+
 </LinearLayout>

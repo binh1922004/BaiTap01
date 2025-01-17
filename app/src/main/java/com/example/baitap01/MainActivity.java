@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +19,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    EditText edtArray;
-    Button btnOddEven;
+    EditText edtArray, edtString;
+    TextView tvRes;
+    Button btnOddEven, btnReverse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         edtArray = findViewById(R.id.edtArray);
+        edtString = findViewById(R.id.edtString);
+        tvRes = findViewById(R.id.tvRes);
+        btnReverse = findViewById(R.id.btnReverse);
         btnOddEven = findViewById(R.id.btnOddEven);
 
         btnOddEven.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        btnReverse.setOnClickListener(v -> {
+            String input = edtString.getText().toString();
+            String res = reverse(input);
+            tvRes.setText(res);
+            Toast.makeText(getApplicationContext(), res, Toast.LENGTH_LONG).show();
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -69,5 +80,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private String reverse(String input){
+        String[] s = input.split(" ");
+        StringBuilder res = new StringBuilder();
+        for (int i = s.length - 1; i >= 0; i--) {
+            res.append(s[i].toUpperCase());
+            if (i != 0)
+                res.append(" ");
+        }
+        return res.toString();
     }
 }
