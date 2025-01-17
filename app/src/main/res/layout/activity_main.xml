@@ -73,10 +73,4 @@
         android:layout_height="wrap_content"
         android:text="Chẳn lẻ" />
 
-    <Button
-        android:id="@+id/btnSquare"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Số chính phương" />
-
 </LinearLayout>
